@@ -1,0 +1,6 @@
+addr:
+  host: localhost
+  port: 50055
+
+api:
+  version: 1
