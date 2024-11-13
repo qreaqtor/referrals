@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:alpine3.20
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_DB=users
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+
+  app:
+    build:
+      context: .
+      dockerfile: ./build/Dockerfile
+    ports:
+      - '50055:50055'
+    depends_on:
+      - postgres

@@ -1,6 +1,19 @@
-addr:
+address:
   host: localhost
   port: 50055
 
+env: local
+
 api:
   version: 1
+
+postgres:
+  user: user
+  password: password
+  database: users
+  address:
+    host: localhost
+    port: 5432
+  connection:
+    attempts: 5
+    delay: 1s

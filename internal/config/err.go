@@ -3,5 +3,5 @@ package config
 import "fmt"
 
 var (
-	errNotExists = fmt.Errorf("file not exists")
+	errNotExists = fmt.Errorf("config file not exists")
 )
