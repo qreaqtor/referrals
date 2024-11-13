@@ -18,14 +18,22 @@ type App struct {
 	server appServer
 }
 
-func NewApp(ctx context.Context, cfg config.Config) *App {
+func NewApp(ctx context.Context, cfg *config.Config) *App {
 	r := mux.NewRouter()
- 
+
 	return &App{
 		server: appserver.NewAppServer(
-			ctx, 
-			httpserver.NewHTTPServer(r), 
+			ctx,
+			httpserver.NewHTTPServer(r),
 			cfg.Addr.ToString(),
 		),
 	}
+}
+
+func (a *App) Start() error {
+	return a.server.Start()
+}
+
+func (a *App) Wait() []error {
+	return a.server.Wait()
 }
